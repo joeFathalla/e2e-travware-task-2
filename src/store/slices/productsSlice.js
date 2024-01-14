@@ -14,13 +14,20 @@ const productsSlice = createSlice({
   initialState: initialState,
   reducers: {
     getAllProducts: (state, action) => {
-      const { searchValue } = action.payload;
+      const { searchByName, sortBy, sortOrder } = action.payload;
       const allProducts = [...ALL_PRODUCTS];
-      // filter by search
-      const filteredProducts = allProducts.filter((product) =>
-        product.name.includes(searchValue)
+      // search
+      const searchProducts = allProducts.filter((product) =>
+        product.name.includes(searchByName)
       );
-      state.products = [...filteredProducts];
+      // sorting by (name, price, id) sorting order (desc or asc)
+      let sortedProducts = [];
+      if (sortOrder === "desc") {
+        sortedProducts = searchProducts.sort((a, b) => b[sortBy] - a[sortBy]);
+      } else {
+        sortedProducts = searchProducts.sort((a, b) => a[sortBy] - b[sortBy]);
+      }
+      state.products = [...sortedProducts];
     },
   },
 });

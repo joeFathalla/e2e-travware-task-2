@@ -6,7 +6,7 @@ const ProductsList = ({ products }) => {
           {products.map((product) => (
             <li
               key={product.id}
-              className="w-full md:w-[30%] lg:w-[20%] p-4 rounded-md mx-3 my-2 bg-slate-200 flex flex-col justify-center"
+              className="w-full md:w-[30%] lg:w-[25%] p-4 rounded-md mx-3 my-2 bg-slate-200 flex flex-col justify-center"
             >
               <div className="my-3">
                 <div className="flex justify-between item-center">
