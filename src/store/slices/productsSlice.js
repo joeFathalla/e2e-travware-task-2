@@ -14,7 +14,13 @@ const productsSlice = createSlice({
   initialState: initialState,
   reducers: {
     getAllProducts: (state, action) => {
-      state.products = [...ALL_PRODUCTS];
+      const { searchValue } = action.payload;
+      const allProducts = [...ALL_PRODUCTS];
+      // filter by search
+      const filteredProducts = allProducts.filter((product) =>
+        product.name.includes(searchValue)
+      );
+      state.products = [...filteredProducts];
     },
   },
 });

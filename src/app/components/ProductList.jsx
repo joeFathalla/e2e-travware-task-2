@@ -1,7 +1,3 @@
-"use client";
-
-import Link from "next/link";
-
 const ProductsList = ({ products }) => {
   return (
     <div>
@@ -15,7 +11,7 @@ const ProductsList = ({ products }) => {
               <div className="my-3">
                 <div className="flex justify-between item-center">
                   <h2
-                    className="font-bold md:text-lg capitalize flex-1"
+                    className="font-bold md:text-lg flex-1"
                     data-test="name-tag"
                   >
                     {product.name}
