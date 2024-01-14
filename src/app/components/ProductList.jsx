@@ -1,4 +1,4 @@
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, addToCart }) => {
   return (
     <div>
       {products?.length > 0 ? (
@@ -28,7 +28,10 @@ const ProductsList = ({ products }) => {
                 </p>
               </div>
               <div className="w-full mt-10 text-center">
-                <button className="px-4 py-1 text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200 w-full ">
+                <button
+                  className="px-4 py-1 text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200 w-full"
+                  onClick={() => addToCart(product)}
+                >
                   Add to Cart
                 </button>
               </div>

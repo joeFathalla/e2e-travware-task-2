@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CustomLoading from "@/app/components/CustomLoading";
-import { getAllProducts } from "@/store/slices/productsSlice";
+import { addProduct, getAllProducts } from "@/store/slices/productsSlice";
 import ProductsList from "@/app/components/ProductList";
 import SearchBar from "@/app/components/Searchbar";
 import FilterDropdown from "@/app/components/FilterDropdown";
@@ -15,9 +15,14 @@ export default function Home() {
   const [sortOrder, setSortOrder] = useState("desc");
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const { products, loading } = useSelector((state) => state.products);
+
   useEffect(() => {
     dispatch(getAllProducts({ searchByName, sortBy, sortOrder, priceRange }));
   }, [dispatch, searchByName, sortBy, sortOrder, priceRange]);
+
+  const addToCartHandler = (product) => {
+    dispatch(addProduct({ product }));
+  };
 
   return (
     <div>
@@ -46,7 +51,9 @@ export default function Home() {
         </div>
       </div>
       {/* Product */}
-      {products && <ProductsList products={products} />}
+      {products && (
+        <ProductsList products={products} addToCart={addToCartHandler} />
+      )}
     </div>
   );
 }

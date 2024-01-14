@@ -5,6 +5,7 @@ const ALL_PRODUCTS = DUMMY_DATA.products;
 
 const initialState = {
   products: null,
+  cart: [],
   loading: false,
   error: null,
 };
@@ -34,8 +35,34 @@ const productsSlice = createSlice({
 
       state.products = [...filteredProducts];
     },
+    addProduct: (state, action) => {
+      const { product } = action.payload;
+      const cart = [...state.cart];
+      const cartIndex = cart.findIndex((cart) => cart.id === product.id);
+      if (cartIndex === -1) {
+        cart.push({ ...product, quantity: 1 });
+      } else {
+        cart[cartIndex].quantity++;
+      }
+      state.cart = [...cart];
+    },
+    removeProduct: (state, action) => {
+      const { cartId } = action.payload;
+      const cart = [...state.cart];
+      const cartIndex = cart.findIndex((cart) => cart.id === cartId);
+      if (cart[cartIndex].quantity === 1) {
+        cart.splice(cartIndex, 1);
+      } else {
+        cart[cartIndex].quantity--;
+      }
+      state.cart = [...cart];
+    },
+    clearCart: (state) => {
+      state.cart = [];
+    },
   },
 });
 
-export const { getAllProducts } = productsSlice.actions;
+export const { getAllProducts, addProduct, removeProduct, clearCart } =
+  productsSlice.actions;
 export default productsSlice.reducer;
