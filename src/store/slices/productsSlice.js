@@ -14,7 +14,7 @@ const productsSlice = createSlice({
   initialState: initialState,
   reducers: {
     getAllProducts: (state, action) => {
-      const { searchByName, sortBy, sortOrder } = action.payload;
+      const { searchByName, sortBy, sortOrder, priceRange } = action.payload;
       const allProducts = [...ALL_PRODUCTS];
       // search
       const searchProducts = allProducts.filter((product) =>
@@ -27,7 +27,12 @@ const productsSlice = createSlice({
       } else {
         sortedProducts = searchProducts.sort((a, b) => a[sortBy] - b[sortBy]);
       }
-      state.products = [...sortedProducts];
+      let filteredProducts = sortedProducts.filter(
+        (product) =>
+          product.price >= priceRange[0] && product.price <= priceRange[1]
+      );
+
+      state.products = [...filteredProducts];
     },
   },
 });

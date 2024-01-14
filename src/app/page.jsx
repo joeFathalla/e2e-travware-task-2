@@ -13,10 +13,11 @@ export default function Home() {
   const [searchByName, setSearchByName] = useState("");
   const [sortBy, setSortBy] = useState("id");
   const [sortOrder, setSortOrder] = useState("desc");
+  const [priceRange, setPriceRange] = useState([0, 1000]);
   const { products, loading } = useSelector((state) => state.products);
   useEffect(() => {
-    dispatch(getAllProducts({ searchByName, sortBy, sortOrder }));
-  }, [dispatch, searchByName, sortBy, sortOrder]);
+    dispatch(getAllProducts({ searchByName, sortBy, sortOrder, priceRange }));
+  }, [dispatch, searchByName, sortBy, sortOrder, priceRange]);
 
   return (
     <div>
@@ -39,6 +40,8 @@ export default function Home() {
             sortOrder={sortOrder}
             setSortBy={setSortBy}
             setSortOrder={setSortOrder}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
           />
         </div>
       </div>
