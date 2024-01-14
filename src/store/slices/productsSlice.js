@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PRODUCTS } from "@/lib/data";
+import DUMMY_DATA from "@/lib/data";
+
+const ALL_PRODUCTS = DUMMY_DATA.products;
 
 const initialState = {
   products: null,
@@ -11,8 +13,8 @@ const productsSlice = createSlice({
   name: "products",
   initialState: initialState,
   reducers: {
-    getAllProducts(state, action) {
-      state.products = [...PRODUCTS];
+    getAllProducts: (state, action) => {
+      state.products = [...ALL_PRODUCTS];
     },
   },
 });
