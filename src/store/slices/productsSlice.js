@@ -21,12 +21,20 @@ const productsSlice = createSlice({
       const searchProducts = allProducts.filter((product) =>
         product.name.includes(searchByName)
       );
-      // sorting by (name, price, id) sorting order (desc or asc)
+      // sorting by (id (default),name, price,)
       let sortedProducts = [];
-      if (sortOrder === "desc") {
-        sortedProducts = searchProducts.sort((a, b) => b[sortBy] - a[sortBy]);
+      if (sortBy === "name") {
+        sortedProducts = searchProducts.sort(function (a, b) {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
       } else {
-        sortedProducts = searchProducts.sort((a, b) => a[sortBy] - b[sortBy]);
+        sortedProducts = searchProducts.sort((a, b) => a.price - b.price);
       }
       let filteredProducts = sortedProducts.filter(
         (product) =>

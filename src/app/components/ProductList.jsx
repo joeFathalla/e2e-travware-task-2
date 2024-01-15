@@ -39,7 +39,7 @@ const ProductsList = ({ products, addToCart }) => {
           ))}
         </ul>
       ) : (
-        <div className="blog-list w-full flex flex-col justify-center items-center">
+        <div className="product-list w-full flex flex-col justify-center items-center">
           <div className="w-3/4 p-4 rounded-md mx-3 my-2 bg-slate-200 text-center">
             <h2 className="font-semibold" data-test="no-blog-tag">
               No products

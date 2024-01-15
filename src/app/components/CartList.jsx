@@ -10,7 +10,7 @@ const CartList = ({ cart, add, remove }) => {
             <div className="my-3">
               <div className="flex justify-between item-center">
                 <h2
-                  className="font-bold md:text-lg flex-1"
+                  className="font-bold md:text-lg flex-1 capitalize"
                   data-test="name-tag"
                 >
                   {item.name}
@@ -19,7 +19,7 @@ const CartList = ({ cart, add, remove }) => {
                   className="block font-bold md:text-lg"
                   data-test="price-tag"
                 >
-                  Price {item.price} EGP
+                  {item.price} EGP
                 </span>
               </div>
             </div>

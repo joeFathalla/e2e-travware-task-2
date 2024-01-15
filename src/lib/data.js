@@ -1,16 +1,16 @@
 const DUMMY_DATA = {
   products: [
     {
-      id: "2",
-      name: "tshirt",
-      price: 100,
-      description: "best tshirt ever",
-    },
-    {
       id: "1",
       name: "shoes",
       price: 1000,
       description: "best shoes ever",
+    },
+    {
+      id: "2",
+      name: "tshirt",
+      price: 100,
+      description: "best tshirt ever",
     },
     {
       id: "3",

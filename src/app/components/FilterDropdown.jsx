@@ -8,8 +8,6 @@ import "react-range-slider-input/dist/style.css";
 export default function FilterDropdown({
   sortBy,
   setSortBy,
-  sortOrder,
-  setSortOrder,
   priceRange,
   setPriceRange,
 }) {
@@ -60,57 +58,6 @@ export default function FilterDropdown({
                 Price
               </button>
             </Menu.Item>
-          </div>
-          <div className="px-2 py-1">
-            <h2 className="font-bold">Sort Order:</h2>
-            <button
-              className="bg-slate-900 text-white w-full text-center py-2 hover:bg-slate-400 rounded-md"
-              onClick={() => {
-                if (sortOrder === "desc") {
-                  setSortOrder("asc");
-                } else {
-                  setSortOrder("desc");
-                }
-              }}
-            >
-              {sortOrder === "asc" ? (
-                <div className="flex justify-around items-center w-full px-2">
-                  <span>Desc</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6 mx-auto my-1"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-                    />
-                  </svg>
-                </div>
-              ) : (
-                <div className="flex justify-around items-center w-full px-2">
-                  <span>Asc</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6 mx-auto my-1"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-                    />
-                  </svg>
-                </div>
-              )}
-            </button>
           </div>
           <div className="px-2 py-1 mb-5">
             <h2 className="font-bold mb-5">Filter Prices:</h2>
