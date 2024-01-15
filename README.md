@@ -1,6 +1,6 @@
-# E2E Travware Blog App
+# E2E Travware Shopping App
 
-small blog app using NextJs Framework, styled with TailwindCSS.
+small Shopping app using NextJs Framework, styled with TailwindCSS.
 
 Getting Started
 ---------------
@@ -16,7 +16,7 @@ Getting Started
     Bash
 
     ```
-    git clone https://github.com/joeFathalla/e2e-travware-task.git
+    git clone https://github.com/joeFathalla/e2e-travware-task-2.git
 
     ```
 
@@ -55,25 +55,7 @@ Getting Started
 
 2.  Open http://localhost:3000 in your browser to view the application.
 
-### Running Tests
 
-1.  Install Cypress globally (if not already installed):
-
-    Bash
-
-    ```
-    npm install -g cypress
-
-    ```
-
-2.  Run Cypress tests:
-
-    Bash
-
-    ```
-    npm run cypress:open
-
-    ```
 
 Additional Notes:
 -   Deployment: For deployment instructions, refer to the Next.js documentation: <https://nextjs.org/docs/deployment>
